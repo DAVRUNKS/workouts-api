@@ -8,10 +8,19 @@ const userroutes = require("./routes/user.js");
 // express app
 const app = express();
 
-// ✅ Enable CORS
+const allowedOrigins = [
+  "https://workouts-a01w.onrender.com",  // New frontend
+];
+
 app.use(cors({
-  origin: "https://workouts-m1wv.onrender.com", // Allow requests from your React frontend
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);  // Allow the request
+    } else {
+      callback(new Error("Not allowed by CORS"));  // Deny the request
+    }
+  },
+  credentials: true  // Allow cookies and authentication headers
 }));
 
 app.use(express.json());
