@@ -9,7 +9,7 @@ const userroutes = require("./routes/user.js");
 const app = express();
 
 const allowedOrigins = [
-  "https://workouts-a01w.onrender.com",  // New frontend
+  "https://workouts-4x74.onrender.com",  // New frontend
 ];
 
 app.use(cors({
