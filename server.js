@@ -10,7 +10,7 @@ const app = express();
 
 // ✅ Enable CORS
 app.use(cors({
-  origin: "https://workouts-cn7o.onrender.com",  // Allow requests from your React frontend
+  origin: "https://workouts-m1wv.onrender.com", // Allow requests from your React frontend
   credentials: true
 }));
 
