@@ -1,13 +1,9 @@
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
 
-const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-res.cookie("token", token, {
-  httpOnly: true, // Prevents XSS attacks
-  secure: process.env.NODE_ENV === "production", // Only use HTTPS in production
-  sameSite: "Strict" // Prevent CSRF
-});
-
+const createToken = (_id) => {
+    return jwt.sign({_id}, process.env.JWT_SECRET, { expiresIn: '3d'})
+}
 
 const loginUser = async (req, res) =>  {
     const {email, password} = req.body
